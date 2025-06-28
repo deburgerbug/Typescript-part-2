@@ -126,7 +126,7 @@ class Stripe implements PaymentMethod {
 //Abstract Class
 
 // Example 1
-
+/*
 abstract class User {
     name: string
     constructor(name: string){
@@ -147,6 +147,7 @@ class Boss extends User {
         return "Hii" + this.name
     }
 }
+*/
 
 /*
 abstract class Product {
@@ -172,3 +173,93 @@ const novel = new Book("Lord of the Mysteries", 20)
 novel.showInfo()
 console.log(` After Discount ,Book price is  ${novel.getDiscountPrice()}`)
 */
+
+//Types
+/*
+type GoodPerson = {
+    name: string
+    gifts: string
+}
+
+type BadPerson = {
+    name:string
+    ip: string
+}
+
+type User = GoodPerson | BadPerson
+const user: User = {
+    name: "Vinit",
+    gifts:"Expensive Pen",
+    ip: "123200121"
+}
+*/
+
+
+//create two types called User and Admin 
+//create a function that takes either a user or an admin as an input and returns a string saying Welcome, [name]
+/*
+interface User {
+    msg: string
+    age: number
+}
+interface Admin {
+    greet(): string 
+}
+
+type Welcome = User | Admin 
+
+const newUser: Welcome = {
+    msg: "hello User",
+    age: 21,
+    greet(){
+        return "opies"
+    }
+}
+*/
+
+// Arrays in TS
+// If you want to access array in Typescript, it's simple as  adding [] annotation next to the type
+
+// Q. Given an array of positive Integers as input, return the maximum value in the array
+/*
+function getMax(arr:number[]){
+    let maxValue = -100;
+    for(let i=0; i<arr.length; i++){
+        if(arr[i]>maxValue){
+            maxValue = arr[i]
+        }
+    }
+    return maxValue
+}
+getMax([1,2,3,5,0])
+*/
+
+//Given list of users filter out the users that are legal(greater than age of 18)
+interface User{
+    firstName: string,
+    lastName: string,
+    age: number
+}
+
+function isLegal(user: User[]){
+    return user.filter((user) => user.age>18)
+    // let ans= []
+    // for(let i=0; i<user.length; i++){
+    //     if(user[i].age>18){
+    //         ans.push(user[i]);
+    //     }
+    // }
+    // return ans;
+}
+const filterArray = isLegal([{
+    firstName: "Dora",
+    lastName: "Dsl",
+    age: 23
+    },
+    {
+    firstName: "Vic",
+    lastName: "Sl",
+    age: 21    
+    
+}])
+console.log(filterArray)
